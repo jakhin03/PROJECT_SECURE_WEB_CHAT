@@ -12,4 +12,6 @@ This is a Project of Secure Web Coding Course at HUST
 * ................
 * Setup environment: [LEMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04), [Laravel Framework](https://laravel.com/docs/11.x/deployment)
 
+Feel free to contribute to our project!
+
 
