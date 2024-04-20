@@ -14,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landingPage');
+    return view('welcome');
 });
 
 Route::get('chat', function(){
-    return "view('chat')";
-});
-
-Route::get('/test', function(){
-    return view('landingPage');
+    return "Hello";
 });
