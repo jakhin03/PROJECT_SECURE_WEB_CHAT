@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('chat', function(){
-    return "Hello";
+    return view('chat');
 });
