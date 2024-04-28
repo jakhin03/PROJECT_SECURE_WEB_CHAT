@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Events\MessageSent;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +21,9 @@ Route::get('/', function () {
 
 Route::get('chat', function(){
     return view('chat');
+});
+
+Route::post('message', function(Request $request){
+    broadcast(new MessageSent(auth()->user(), $request->input('message')));
+    return $request->input('message');
 });
