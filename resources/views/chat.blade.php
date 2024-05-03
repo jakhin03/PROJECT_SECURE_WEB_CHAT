@@ -15,8 +15,6 @@
 		  height: 100%;
 		}
 		body {
-		  background: linear-gradient(135deg, #044f48, #2a7561);
-		  background-size: cover;
 		  font-family: 'Open Sans', sans-serif;
 		  font-size: 14px;
 		  line-height: 1.3;

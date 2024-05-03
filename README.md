@@ -24,6 +24,7 @@ This is a Project of Secure Web Coding Course at HUST
 ## Architectures:
 ### Webserver
 * Nginx
+
 ![Source: dev.to/programmingdecoded](./Assets/NginxProxy.png)
 
 * Application Flow
@@ -31,11 +32,19 @@ This is a Project of Secure Web Coding Course at HUST
 
 ## Implementation:
 * Authentication:
+    * Login page
 ![Login page](./Assets/Login.png)
 
+* Register page
 ![Register page](./Assets/Register.png)
 
+* Reset password page
+![ResetPassword page](./Assets/ResetPassword.png)
+
+* Dashboard page
 ![Dashboard page](./Assets/Dashboard.png)
+
+
 Feel free to contribute to our project!
 
 
