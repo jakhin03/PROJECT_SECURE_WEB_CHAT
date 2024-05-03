@@ -1977,7 +1977,7 @@
         var _this = this;
     
         this.loadMessage();
-        Echo.channel('laravel_database_chatroom').listen('MessagePosted', function (data) {
+        Echo.channel('chatroom').listen('MessagePosted', function (data) {
           var message = data.message;
           message.user = data.user;
     

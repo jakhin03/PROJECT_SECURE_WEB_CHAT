@@ -27,6 +27,10 @@ This is a Project of Secure Web Coding Course at HUST
 
 ![Source: dev.to/programmingdecoded](./Assets/NginxProxy.png)
 
+* Laravel request lifecycle
+![](./Assets/Laravel.png)
+
+
 * Application Flow
 ![Source: github.com/nguyentranchung](./Assets/AppFlow.png)
 
