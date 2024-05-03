@@ -168,6 +168,7 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\VoltServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +184,24 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Redis' => Illuminate\Support\Facades\Redis::class,
+        'client' => env('REDIS_CLIENT', 'predis')
     ])->toArray(),
 
+    'debug_blacklist' => [
+        '_ENV' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+        ],
+    
+        '_SERVER' => [
+            'APP_KEY',
+            'DB_PASSWORD',
+        ],
+    
+        '_POST' => [
+            'password',
+        ],
+    ]
+    
 ];
