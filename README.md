@@ -35,13 +35,13 @@ This is a Project of Secure Web Coding Course at HUST
     * Login page
 ![Login page](./Assets/Login.png)
 
-* Register page
+    * Register page
 ![Register page](./Assets/Register.png)
 
-* Reset password page
+    * Reset password page
 ![ResetPassword page](./Assets/ResetPassword.png)
 
-* Dashboard page
+    * Dashboard page
 ![Dashboard page](./Assets/Dashboard.png)
 
 

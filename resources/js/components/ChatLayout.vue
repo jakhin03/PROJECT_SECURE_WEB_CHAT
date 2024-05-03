@@ -62,7 +62,7 @@
     },
     created() {
       this.loadMessage()
-      Echo.channel('laravel_database_chatroom')
+      Echo.channel('chatroom')
       .listen('MessagePosted', (data) => {
         let message = data.message
         message.user = data.user
