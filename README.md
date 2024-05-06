@@ -24,8 +24,7 @@ This is a Project of Secure Web Coding Course at HUST
 ## Architectures:
 ### Webserver
 * Nginx
-
-![Source: dev.to/programmingdecoded](./Assets/NginxProxy.png)
+![](./Assets/NginxProxy.png)
 
 * Laravel request lifecycle
 ![](./Assets/Laravel.png)
