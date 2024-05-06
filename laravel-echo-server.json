@@ -1,10 +1,10 @@
 {
-	"authHost": "http://localhost",
+	"authHost": "http://dis.cord.vi.en.pro",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
-			"appId": "312214572eec6fcd",
-			"key": "7e0cf0c45958ba53e031823a0107f8e9"
+			"appId": "966e3c72b689e351",
+			"key": "7c05bd7f83ca2d461507e31db7ec784b"
 		}
 	],
 	"database": "redis",
@@ -30,7 +30,7 @@
 	},
 	"apiOriginAllow": {
 		"allowCors": true,
-		"allowOrigin": "8000",
+		"allowOrigin": "http://dis.cord.vi.en.pro",
 		"allowMethods": "GET, POST",
 		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
 	}

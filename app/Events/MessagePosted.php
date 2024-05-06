@@ -38,5 +38,6 @@ class MessagePosted implements ShouldBroadcast
     public function broadcastOn()
     {
         return ['chatroom'];
+        // hoặc: return new Channel('chatroom');
     }
 }
