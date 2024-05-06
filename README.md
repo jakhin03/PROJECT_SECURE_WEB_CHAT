@@ -23,7 +23,7 @@ This is a Project of Secure Web Coding Course at HUST
 
 ## Architectures:
 ### Webserver
-* Nginx
+* Nginx                           
 ![](./Assets/NginxProxy.png)
 
 * Laravel request lifecycle
