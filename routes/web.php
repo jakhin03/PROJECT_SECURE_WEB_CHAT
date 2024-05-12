@@ -7,64 +7,44 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-// Route::get('chat', function(){
+// Auth::routes();
+
+// Route::get('home', function(){
+//     return redirect('/');
+// });
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/chat', function() {
 //     return view('chat');
-// });
+// })->middleware('auth');
 
-// Route::post('message', function(Request $request){
-//     broadcast(new MessageSent(auth()->user(), $request->input('message')));
-//     return $request->input('message');
-// });
+// Route::get('/getUserLogin', function() {
+// 	return Auth::user();
+// })->middleware('auth');
 
-// Route::get('login/{id}', function($id){
-//     Auth::loginUsingId($id);
+// Route::get('/messages', function() {
+//     return App\Models\Message::with('user')->get();
+// })->middleware('auth');
 
-//     return back();
-// });
+// Route::post('/messages', function() {
+//     $user = Auth::user();
 
-// Route::get('logout', function(){
-//     Auth::logout();
+//     $message = new App\Models\Message();
+//     $message->message = request()->get('message', '');
+//     $message->user_id = $user->id;
+//     $message->save();
 
-//     return back();
-// });
+//     broadcast(new App\Events\MessagePosted($message, $user))->toOthers();
+//     return ['message' => $message->load('user')];
+// })->middleware('auth');
+
 Auth::routes();
 
-Route::get('home', function(){
-    return redirect('/');
-});
+Route::get('/', 'AppController@index')->middleware('auth');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/messages', 'MessageController@index')->middleware('auth');
 
-Route::get('/chat', function() {
-    return view('chat');
-})->middleware('auth');
+Route::post('/messages', 'MessageController@store')->middleware('auth');
 
-Route::get('/getUserLogin', function() {
-	return Auth::user();
-})->middleware('auth');
-
-Route::get('/messages', function() {
-    return App\Models\Message::with('user')->get();
-})->middleware('auth');
-
-Route::post('/messages', function() {
-    $user = Auth::user();
-
-    $message = new App\Models\Message();
-    $message->message = request()->get('message', '');
-    $message->user_id = $user->id;
-    $message->save();
-
-    broadcast(new App\Events\MessagePosted($message, $user))->toOthers();
-    return ['message' => $message->load('user')];
-})->middleware('auth');
+Route::get('/{any}', 'AppController@index')->where('any', '.*')->middleware('auth'); // catch all routes or else it will return 404 with Vue router in history mode
