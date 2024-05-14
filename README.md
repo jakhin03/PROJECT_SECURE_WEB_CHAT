@@ -47,6 +47,9 @@ This is a Project of Secure Web Coding Course at HUST
     * Dashboard page
 ![Dashboard page](./Assets/Dashboard.png)
 
+## Note:
+* Rate limit theo ip 60reqs/min/user
+
 
 Feel free to contribute to our project!
 

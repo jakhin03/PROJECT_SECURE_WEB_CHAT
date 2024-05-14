@@ -10,34 +10,36 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Message;
-use App\Models\User;
 
 class MessagePosted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $message;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public $message;
-    public $user;
-
-    public function __construct(Message $message, User $user)
+    public function __construct(Message $message)
     {
         $this->message = $message;
-        $this->user = $user;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return \Illuminate\Broadcasting\Channel|array
+     * @return array<int, \Illuminate\Broadcasting\Channel>
      */
     public function broadcastOn()
     {
-        return ['chatroom'];
-        // hoặc: return new Channel('chatroom');
+        if (strpos($this->message->room, '__') !== false) { // must use !== false
+            return [
+                new PrivateChannel('room.'.$this->message->receiver),
+                new PrivateChannel('room.'.$this->message->room)
+            ];
+        } else {
+            return [new PresenceChannel('room.'.$this->message->room)];
+        }
     }
 }
