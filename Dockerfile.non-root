@@ -1,8 +1,6 @@
 # Set master image
 FROM php:8.3-fpm-alpine
 
-LABEL maintainer="Mai Trung Duc (maitrungduc1410@gmail.com)"
-
 # Set working directory
 WORKDIR /app
 

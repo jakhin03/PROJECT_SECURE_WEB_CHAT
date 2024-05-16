@@ -1,6 +1,5 @@
 <script setup>
 import { ref, watch, provide } from "vue";
-import Footer from "./components/Footer.vue";
 import { useRoute } from "vue-router";
 import { Toast } from "bootstrap";
 // provide this for all children
@@ -113,7 +112,6 @@ function showToast(title, message) {
         </transition>
       </router-view>
     </div>
-    <Footer />
   </div>
 
   <div class="toast-container position-fixed top-0 end-0 p-3">
