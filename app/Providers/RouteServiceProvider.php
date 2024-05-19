@@ -17,16 +17,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */
     public function boot(): void
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
+        $this->configureRateLimiting();
 
         $this->routes(function () {
             Route::middleware('api')
@@ -36,5 +34,39 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+    }
+
+    
+    /**
+     * BLock endpoint /login when > 500 req/min, 5req/min/IP, 5req/min/username
+     */
+    protected function configureRateLimiting():void{
+        RateLimiter::for('global', function (Request $request) {
+            return [
+                Limit::perMinute(1000)->by($request->ip()),
+            ];
+        });
+        RateLimiter::for('login', function(Request $request){
+            return [
+                Limit::perMinute(500),
+                Limit::perMinute(5)->by($request->ip()),
+                Limit::perMinute(5)->by($request->input('username')),
+            ];                
+        });
+        RateLimiter::for('register', function (Request $request) {
+            return [
+                Limit::perMinute(100),
+                Limit::perMinute(5)->by($request->ip()),
+                Limit::perMinute(5)->by($request->input('email')),
+            ];
+        });
+        RateLimiter::for('reset-password', function (Request $request) {
+            return [
+                Limit::perMinute(50),
+                Limit::perMinute(5)->by($request->ip()),
+                Limit::perMinute(5)->by($request->input('email')),
+            ];
+        });
+
     }
 }

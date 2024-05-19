@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ListRoom from './pages/ListRoom.vue'
 import Room from './pages/Room.vue'
+import Dashboard from './pages/Dashboard.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/rooms',
     name: 'list.room',
     component: ListRoom
   },
@@ -12,7 +13,12 @@ const routes = [
     path: '/rooms/:roomId',
     name: 'room',
     component: Room
-  }
+  },
+  {
+    path: '/',
+    name: 'Dashboard',
+    component: Dashboard,
+  },
 ]
 
 const router = createRouter({

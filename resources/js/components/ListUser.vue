@@ -46,7 +46,7 @@ const filteredUsersList = computed(() => {
         <li
           v-for="user in filteredUsersList"
           :key="user.id"
-          @click="$emit('selectReceiver', user)"
+          @click="$dispatch('selectReceiver', user)"
         >
           <div class="current-user-mark" v-if="user.id === myUser.id" />
           <div class="d-flex bd-highlight">

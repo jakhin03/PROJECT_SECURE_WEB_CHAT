@@ -9,6 +9,11 @@ import { createApp } from "vue";
 import router from "./router";
 import App from "./App.vue";
 
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -37,3 +42,10 @@ app.use(router);
  */
 
 app.mount("#app");
+
+// import './bootstrap';
+
+
+
+
+

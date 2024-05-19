@@ -146,7 +146,7 @@ function celebrate(event) {
             ? undefined
             : `Click to chat with ${message.sender.name} (${message.sender.email})`
         "
-        @click="!isPrivate && $emit('selectReceiver', message.sender)"
+        @click="!isPrivate && $dispatch('selectReceiver', message.sender)"
       >
         <img
           src="/images/current_user.jpg"
