@@ -18,11 +18,11 @@
                 </div>
 
                 <!-- Messaging Links -->
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('rooms')" :active="request()->routeIs('rooms')">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="'/rooms'" :active="request()->routeIs('rooms')">
                         {{ __('Rooms Chat') }}
                     </x-nav-link>
-                </div> --}}
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

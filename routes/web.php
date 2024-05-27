@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/rooms', [App\Http\Controllers\AppController::class, 'index'])->middleware('auth');
+Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->middleware('auth');
 
 Route::get('/messages', [App\Http\Controllers\MessageController::class, 'index'])->middleware('auth');
 
@@ -35,8 +35,8 @@ Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store'
 
 Route::post('/reactions', [App\Http\Controllers\MessageController::class, 'react'])->middleware('auth');
 
-Route::get('/{any}', function () {
-    return view('dashboard');
-})->where('any', '.*')->middleware(['auth', 'verified']); // catch all routes or else it will return 404 with Vue router in history mode
+// Route::get('/{any}', function () {
+//     return view('dashboard');
+// })->where('any', '.*')->middleware(['auth', 'verified']); // catch all routes or else it will return 404 with Vue router in history mode
 
-// Route::get('/{any}', [App\Http\Controllers\AppController::class, 'index'])->where('any', '.*')->middleware('auth'); // catch all routes or else it will return 404 with Vue router in history mode
+Route::get('/{any}', [App\Http\Controllers\AppController::class, 'index'])->where('any', '.*')->middleware('auth'); // catch all routes or else it will return 404 with Vue router in history mode

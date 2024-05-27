@@ -8,8 +8,8 @@
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "@tailwindcss/forms": "^0.5.2",
-        "@vitejs/plugin-vue": "^4.5.0",
-        "alpinejs": "^3.4.2",
+        "@vitejs/plugin-vue": "^4.6.2",
+        "alpinejs": "^3.13.10",
         "autoprefixer": "^10.4.2",
         "axios": "^1.6.7",
         "bootstrap": "^5.2.3",
@@ -21,6 +21,8 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "@inertiajs/inertia": "^0.11.1",
+        "@inertiajs/inertia-vue3": "^0.6.0",
         "canvas-confetti": "^1.9.2",
         "dompurify": "^3.0.8",
         "jquery": "^3.7.1",

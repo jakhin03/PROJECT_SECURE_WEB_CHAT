@@ -61,7 +61,14 @@ function showToast(title, message) {
               {{ appName }}
             </h2>
           </router-link>
+          
           <div>
+            <a
+              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              href="/dashboard"
+            >
+              Dashboard
+            </a>
             <a
               class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
               href="/horizon"
@@ -82,6 +89,13 @@ function showToast(title, message) {
               target="_blank"
             >
               Pulse
+            </a>
+            <a
+              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              href="/profile"
+              target="_blank"
+            >
+              Profile
             </a>
           </div>
           <div class="btn-logout">

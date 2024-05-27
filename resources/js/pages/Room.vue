@@ -8,7 +8,7 @@ import {
   computed,
   watch,
 } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute } from "vue-router"; 
 import Chat from "../components/Chat.vue";
 
 const route = useRoute();

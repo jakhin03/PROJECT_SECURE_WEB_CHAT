@@ -47,7 +47,7 @@ const colors = ref([
         Customise your chat
         <i
           class="fal fa-times float-end"
-          @click="$dispatch('hide')"
+          @click="$emit('hide')"
         ></i>
       </h5>
       <div class="color-palette-body d-flex flex-wrap p-4 justify-content-center">
@@ -59,14 +59,14 @@ const colors = ref([
           <div
             class="color-item"
             :style="{ 'background-color': c.value }"
-            @click="$dispatch('selectColor', c.value)"
+            @click="$emit('selectColor', c.value)"
           ></div>
         </div>
       </div>
     </div>
     <div
       class="color-palette-overlay"
-      @click="$dispatch('hide')"
+      @click="$emit('hide')"
     ></div>
   </div>
 </template>

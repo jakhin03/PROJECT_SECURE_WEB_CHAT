@@ -408,7 +408,7 @@ const onInputPrivateChange = throttle(function () {
           :style="{ color: msgColor }"
         ></i>
       </div>
-      <button class="btn-close" @click="$dispatch('closeChat')">
+      <button class="btn-close" @click="$emit('closeChat')">
         <i class="fal fa-times"></i>
       </button>
     </div>
@@ -465,7 +465,7 @@ const onInputPrivateChange = throttle(function () {
         :message="message"
         :msgColor="msgColor"
         @showEmoji="showEmoji"
-        @selectReceiver="$dispatch('selectReceiver', $event)"
+        @selectReceiver="$emit('selectReceiver', $event)"
       />
       <div v-if="isPrivate">
         <div class="d-flex justify-content-end" v-if="isSeen">
