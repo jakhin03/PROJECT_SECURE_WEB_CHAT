@@ -59,6 +59,7 @@ This is a Project of Secure Web Coding Course at HUST
 
 * Prevent bruteforce password: using [Laravel Rate Limiter](https://laravel.com/api/8.x/Illuminate/Support/Facades/RateLimiter.html)
     * Limit number of requests per minute by an IP
+    * Limit number of requests perminute at each input
     * Limit number of requests per minute at an endpoint
 
 * Restoring Password and Update Password features
