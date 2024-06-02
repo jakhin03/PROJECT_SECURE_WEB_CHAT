@@ -17,6 +17,7 @@ const csrfToken = ref(
 );
 const transitionName = ref("fade");
 const route = useRoute();
+const user = window.__app__.user.name;
 const appName = window.__app__.appName;
 const toastMsg = ref({
   title: "Title",
@@ -61,54 +62,40 @@ function showToast(title, message) {
               {{ appName }}
             </h2>
           </router-link>
-          <div>
-            <!-- <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
-              href="/dashboard"
+            <div class="dropdown">
+            <button
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              Dashboard
-            </a> -->
-            <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
-              href="/horizon"
-              target="_blank"
-            >
-              Horizon
-            </a>
-            <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
-              href="/telescope"
-              target="_blank"
-            >
-              Telescope
-            </a>
-            <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
-              href="/pulse"
-              target="_blank"
-            >
-              Pulse
-            </a>
-            <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
-              href="/profile"
-              target="_blank"
-            >
-              Profile
-            </a>
-          </div>
-          
-          <div class="btn-logout">
-            <a
-              class="btn btn-danger"
-              href="/logout"
-              onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();"
-            >
+              {{ user }}
+            </button>
+            <ul class="dropdown-menu" style="font-size:0.875rem;" aria-labelledby="dropdownMenuButton">
+              <!-- <li>
+              <a class="dropdown-item" href="/dashboard">Dashboard</a>
+              </li>
+              <li>
+              <a class="dropdown-item" href="/horizon" target="_blank">Horizon</a>
+              </li>
+              <li>
+              <a class="dropdown-item" href="/telescope" target="_blank">Telescope</a>
+              </li>
+              <li>
+              <a class="dropdown-item" href="/pulse" target="_blank">Pulse</a>
+              </li> -->
+              <li>
+              <a class="dropdown-item" href="/profile" target="_blank">Profile</a>
+              </li>
+              <li>
+              <a class="dropdown-item" href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="font-size: 0.875rem;">
               Logout
-            </a>
-
-            <form
+              </a>
+              </li>
+            </ul>
+            </div>
+              <form
               id="logout-form"
               action="/logout"
               method="POST"
@@ -116,10 +103,8 @@ function showToast(title, message) {
             >
               <input type="hidden" name="_token" :value="csrfToken" />
             </form>
-          </div>
         </div>
       </div>
-
       <router-view v-slot="{ Component }">
         <transition :name="transitionName" mode="out-in" appear>
           <component :is="Component" />
