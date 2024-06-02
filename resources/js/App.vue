@@ -48,56 +48,56 @@ function showToast(title, message) {
 
 <template>
   <div class="h-100 app-container">
-    <div class="h-100 container position-relative chat-container">
+    <div class="h-100 container font-sans position-relative chat-container">
       <div class="app-header">
         <div
           class="d-flex justify-content-between align-items-center flex-column flex-md-row"
         >
           <router-link
             to="/"
-            class="btn btn-link link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+            class="btn btn-link link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
           >
             <h2>
               {{ appName }}
             </h2>
           </router-link>
-          
           <div>
-            <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+            <!-- <a
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
               href="/dashboard"
             >
               Dashboard
-            </a>
+            </a> -->
             <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
               href="/horizon"
               target="_blank"
             >
               Horizon
             </a>
             <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
               href="/telescope"
               target="_blank"
             >
               Telescope
             </a>
             <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
               href="/pulse"
               target="_blank"
             >
               Pulse
             </a>
             <a
-              class="btn btn-link fs-4 link-underline-opacity-0 text-light link-body-emphasis link-underline-opacity-100-hover"
+              class="btn btn-link fs-4 link-underline-opacity-0 text-black link-body-emphasis link-underline-opacity-100-hover"
               href="/profile"
               target="_blank"
             >
               Profile
             </a>
           </div>
+          
           <div class="btn-logout">
             <a
               class="btn btn-danger"
@@ -159,11 +159,7 @@ html {
 }
 
 .app-container {
-  background: #0078d4;
-  background-image: -o-linear-gradient(0deg, #0078d4, #00bcf2);
-  background-image: -moz-linear-gradient(0deg, #0078d4, #00bcf2);
-  background-image: -webkit-linear-gradient(0deg, #0078d4, #00bcf2);
-  background-image: linear-gradient(0deg, #0078d4, #00bcf2);
+  background: #F3F4F6;
 
   .app-header {
     position: absolute;

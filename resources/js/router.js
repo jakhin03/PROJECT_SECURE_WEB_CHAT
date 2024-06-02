@@ -9,7 +9,6 @@ import {
   computed,
   watch,
 } from "vue";
-import Dashboard from './pages/Dashboard.vue'
 
 const rooms = inject("$rooms");
 const routes = [
@@ -22,16 +21,6 @@ const routes = [
     path: '/rooms/:roomId',
     name: 'room',
     component: Room,
-    beforeEnter: (to, from, next) => {
-      const roomId = parseInt(to.params.roomId);
-      const roomExists = rooms.some(room => room.id === roomId);
-
-      if (roomExists) {
-        next();
-      } else {
-        next('/');
-      }
-    }
   },
   {
     path: "/:catchAll(.*)",

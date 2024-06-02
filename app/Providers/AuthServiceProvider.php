@@ -28,6 +28,24 @@ class AuthServiceProvider extends ServiceProvider
                     env('APP_ADMIN_ACCOUNT')
                 ]);
             });
+        }else{ // This is not compleeted
+            $this->registerPolicies();
+
+            Gate::define('viewDashboard', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewHorizon', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewTelescope', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewPulse', function (User $user) {
+                return $user->type === 'admin';
+            });
         }
     }
 }

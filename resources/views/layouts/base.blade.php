@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'talky') }}</title>
-        <link rel="icon favicon" href="{{ asset('images/favicon.png') }}">
+        <link rel="icon" href="{{ asset('images/favicon.png') }}">
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">        
