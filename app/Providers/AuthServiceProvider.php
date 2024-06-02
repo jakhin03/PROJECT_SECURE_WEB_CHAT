@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,6 +22,30 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (config('app.env') === 'production') {
+            Gate::define('viewPulse', function (User $user) {
+                return in_array($user->email, [
+                    env('APP_ADMIN_ACCOUNT')
+                ]);
+            });
+        }else{ // This is not compleeted
+            $this->registerPolicies();
+
+            Gate::define('viewDashboard', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewHorizon', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewTelescope', function (User $user) {
+                return $user->type === 'admin';
+            });
+    
+            Gate::define('viewPulse', function (User $user) {
+                return $user->type === 'admin';
+            });
+        }
     }
 }

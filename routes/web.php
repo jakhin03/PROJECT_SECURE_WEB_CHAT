@@ -1,11 +1,7 @@
 <?php
 
-use App\Events\MessageSent;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,54 +13,30 @@ use Livewire\Volt\Volt;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('chat', function(){
-//     return view('chat');
-// });
 
-// Route::post('message', function(Request $request){
-//     broadcast(new MessageSent(auth()->user(), $request->input('message')));
-//     return $request->input('message');
-// });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('login/{id}', function($id){
-//     Auth::loginUsingId($id);
 
-//     return back();
-// });
-
-// Route::get('logout', function(){
-//     Auth::logout();
-
-//     return back();
-// });
-Auth::routes();
-
-Route::get('home', function(){
-    return redirect('/');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+require __DIR__.'/auth.php';
 
-Route::get('/chat', function() {
-    return view('chat');
-})->middleware('auth');
+Route::get('/', [App\Http\Controllers\AppController::class, 'index'])->middleware('auth');
 
-Route::get('/getUserLogin', function() {
-	return Auth::user();
-})->middleware('auth');
+Route::get('/messages', [App\Http\Controllers\MessageController::class, 'index'])->middleware('auth');
 
-Route::get('/messages', function() {
-    return App\Models\Message::with('user')->get();
-})->middleware('auth');
+Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store'])->middleware('auth');
 
-Route::post('/messages', function() {
-    $user = Auth::user();
+Route::post('/reactions', [App\Http\Controllers\MessageController::class, 'react'])->middleware('auth');
 
-    $message = new App\Models\Message();
-    $message->message = request()->get('message', '');
-    $message->user_id = $user->id;
-    $message->save();
+// Route::get('/{any}', function () {
+//     return view('dashboard');
+// })->where('any', '.*')->middleware(['auth', 'verified']); // catch all routes or else it will return 404 with Vue router in history mode
 
-    broadcast(new App\Events\MessagePosted($message, $user))->toOthers();
-    return ['message' => $message->load('user')];
-})->middleware('auth');
+Route::get('/{any}', [App\Http\Controllers\AppController::class, 'index'])->where('any', '.*')->middleware('auth'); // catch all routes or else it will return 404 with Vue router in history mode
