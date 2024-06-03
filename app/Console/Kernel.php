@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
             $quotes = [
                 'Bot: Detect typing and Seen message are available in Private Chat. Select an user from The right Sidebar and start Private Chat',
                 'Bot: You can react to other user\'s message (Love, Haha, Angry,...)',
-                'Bot: Try type \'Chuc mung\', \'Congrats\' or \'Congratulations\' to see animation',
+                'Bot: Try type \'Chuc mung\', \'Congrats\', \'bksec\', \'hust\' or \'Congratulations\' to see animation',
                 'Bot: You can change your message color in Private chat'
             ];
 
