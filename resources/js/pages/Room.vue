@@ -1,5 +1,8 @@
 <script setup>
+// import checkSession from "../sessionCheck";
+// checkSession();
 import ListUser from "../components/ListUser.vue";
+
 import {
   ref,
   onBeforeMount,
@@ -8,10 +11,11 @@ import {
   computed,
   watch,
 } from "vue";
-import { useRoute } from "vue-router"; 
+import { useRoute, useRouter } from "vue-router"; 
 import Chat from "../components/Chat.vue";
 
 const route = useRoute();
+const router = useRouter();
 const currentRoom = ref({});
 const selectedUser = ref(null);
 const usersOnline = ref([]);
@@ -68,6 +72,8 @@ onBeforeMount(() => {
         }
       }
     });
+  }else{
+    router.push('/');
   }
 });
 

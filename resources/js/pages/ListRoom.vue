@@ -1,5 +1,7 @@
 <script setup>
-import { ref, computed, inject } from "vue";
+// import checkSession from "../sessionCheck";
+// checkSession();
+import { ref, computed, inject, onBeforeUnmount, onMounted } from "vue";
 
 const searchQuery = ref("");
 const rooms = inject("$rooms");
