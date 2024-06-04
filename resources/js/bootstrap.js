@@ -40,7 +40,12 @@ import Echo from 'laravel-echo'
 // window.io comes from laravel-echo-server, so that we have compatible version
 // window.io = require('socket.io-client')
 
+// window.Echo = new Echo({
+//   broadcaster: 'socket.io',
+//   host: `${window.location.protocol}//${window.location.hostname}:${import.meta.env.VITE_LARAVEL_ECHO_SERVER_PORT}`
+// })
+
 window.Echo = new Echo({
   broadcaster: 'socket.io',
-  host: `${window.location.protocol}//${window.location.hostname}:${import.meta.env.VITE_LARAVEL_ECHO_SERVER_PORT}`
+  host: `${window.location.protocol}//${window.location.hostname}`
 })
