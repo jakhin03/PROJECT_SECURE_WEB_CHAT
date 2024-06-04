@@ -32,19 +32,27 @@ class AuthServiceProvider extends ServiceProvider
             $this->registerPolicies();
 
             Gate::define('viewDashboard', function (User $user) {
-                return $user->type === 'admin';
+                return in_array($user->email, [
+                    env('APP_ADMIN_ACCOUNT')
+                ]);
             });
     
             Gate::define('viewHorizon', function (User $user) {
-                return $user->type === 'admin';
+                return in_array($user->email, [
+                    env('APP_ADMIN_ACCOUNT')
+                ]);
             });
     
             Gate::define('viewTelescope', function (User $user) {
-                return $user->type === 'admin';
+                return in_array($user->email, [
+                    env('APP_ADMIN_ACCOUNT')
+                ]);
             });
     
             Gate::define('viewPulse', function (User $user) {
-                return $user->type === 'admin';
+                return in_array($user->email, [
+                    env('APP_ADMIN_ACCOUNT')
+                ]);
             });
         }
     }
