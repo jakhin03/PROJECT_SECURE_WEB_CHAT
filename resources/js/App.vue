@@ -1,5 +1,7 @@
 <script setup>
-import { ref, watch, provide } from "vue";
+// import checkSession from "./sessionCheck";
+// checkSession();
+import { ref, watch, provide, computed } from "vue";
 import { useRoute } from "vue-router";
 import { Toast } from "bootstrap";
 // provide this for all children
@@ -34,6 +36,13 @@ watch(
     }
   }
 );
+const adminAccount = import.meta.env.VITE_APP_ADMIN_ACCOUNT;
+const isLoggedIn = ref(window.__app__.user !== null);
+
+const showAdminLinks = computed(() => {
+  console.log(adminAccount);
+  return isLoggedIn.value && window.__app__.user.email === adminAccount;
+});
 
 function showToast(title, message) {
   toastMsg.value = {
@@ -73,20 +82,11 @@ function showToast(title, message) {
               {{ user }}
             </button>
             <ul class="dropdown-menu" style="font-size:0.875rem;" aria-labelledby="dropdownMenuButton">
-              <!-- <li>
-              <a class="dropdown-item" href="/dashboard">Dashboard</a>
+              <li v-if="showAdminLinks">
+                <a class="dropdown-item" href="/dashboard">Admin Dashboard</a>
               </li>
               <li>
-              <a class="dropdown-item" href="/horizon" target="_blank">Horizon</a>
-              </li>
-              <li>
-              <a class="dropdown-item" href="/telescope" target="_blank">Telescope</a>
-              </li>
-              <li>
-              <a class="dropdown-item" href="/pulse" target="_blank">Pulse</a>
-              </li> -->
-              <li>
-              <a class="dropdown-item" href="/profile" target="_blank">Profile</a>
+              <a class="dropdown-item" href="/profile">Profile</a>
               </li>
               <li>
               <a class="dropdown-item" href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="font-size: 0.875rem;">

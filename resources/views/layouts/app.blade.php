@@ -3,7 +3,6 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-<script src="http://localhost:6001/socket.io/socket.io.js"></script>
 @endsection
 
 @section('body')

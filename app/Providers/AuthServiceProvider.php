@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (config('app.env') === 'production') {
+        if (config('app.env') === 'abc') {
             Gate::define('viewPulse', function (User $user) {
                 return in_array($user->email, [
                     env('APP_ADMIN_ACCOUNT')
