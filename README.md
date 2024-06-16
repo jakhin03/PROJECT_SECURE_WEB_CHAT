@@ -68,17 +68,15 @@ This is a Project of Secure Web Coding Course at HUST
 * Có cơ chế an toàn khi sử dụng access token để xác thực phiên: chống giả mạo, can thiệp, vét cạn
 * Có cơ chế kiểm soát thời gian của phiên
 * Có cơ chế chống tấn công  CSRF
-* Bảo vệ cookie, chống session hijacking
 
 ### Authorization:
 * Phân quyền và kiểm duyệt truy cập theo chức năng, nghiệp vụ
 * Chống leo thang đặc quyền
 
 ### Handle untrusted data (input):
-* Kiểm duyệt và làm sạch giá trị đầu vào
-* Chống các dạng tấn công Injection
-* Chống các dạng tấn công duyệt file, thư mục trái phép
-* Kiểm soát file do người dùng upload
+* Kiểm duyệt và làm sạch giá trị đầu vào, sử dụng DOMPurify để sanitize
+* Chống các dạng tấn công Injection, không sử dụng raw query
+
 
 ### Logging and Reporting:
 * Ghi đầy đủ thông tin sự kiện xảy ra trên ứng dụng.

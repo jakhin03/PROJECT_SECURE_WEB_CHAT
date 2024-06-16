@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach (['Horizon', 'Telescope', 'Pulse'] as $tool)
-                    <div class="card">
+                    <div class="card" style="background-color: #fff">
                         <div class="card-header">
                             <a href="/{{ strtolower($tool) }}" target="_blank" class="block text-center text-lg font-semibold text-blue-500 hover:text-blue-700">{{ __($tool) }}</a>
                         </div>
@@ -31,18 +31,17 @@
     </div>
 </x-app-layout>
 <style>
-    /* Trong file app.css hoặc resources/css/app.css */
 .card {
-    background-color: #fff; /* Màu nền trắng */
-    border: 1px solid #e2e8f0; /* Viền xám nhạt */
-    border-radius: 0.5rem; /* Bo góc */
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Hiệu ứng đổ bóng */
+    background-color: #fff !important;
+    border: 1px solid #e2e8f0; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
 }
 
 .card-header {
-    background-color: #f7fafc; /* Màu nền header nhạt hơn */
+    background-color: #f7fafc; 
     padding: 1rem;
-    border-bottom: 1px solid #e2e8f0; /* Viền dưới header */
+    border-bottom: 1px solid #e2e8f0; 
 }
 
 .card-body {

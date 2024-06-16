@@ -40,7 +40,6 @@ const adminAccount = import.meta.env.VITE_APP_ADMIN_ACCOUNT;
 const isLoggedIn = ref(window.__app__.user !== null);
 
 const showAdminLinks = computed(() => {
-  console.log(adminAccount);
   return isLoggedIn.value && window.__app__.user.email === adminAccount;
 });
 
